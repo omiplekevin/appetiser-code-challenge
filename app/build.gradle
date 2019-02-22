@@ -1,0 +1,38 @@
+apply from: 'dependencies.gradle'
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.android.omiplekevin.appetiserplay"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "baseUrl", "\"https://itunes.apple.com/\"")
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation androidSupport
+    implementation retrofit
+    implementation recyclerView
+    implementation butterKnife
+    implementation lombok
+    implementation dagger
+    implementation rxjava
+    implementation facebookstetho
+    annotationProcessor butterKnifeAnnotation
+    annotationProcessor lombokAnnotation
+    annotationProcessor daggerAnnotation
+    testImplementation junit
+    androidTestImplementation androidSupportTestImpl
+}
