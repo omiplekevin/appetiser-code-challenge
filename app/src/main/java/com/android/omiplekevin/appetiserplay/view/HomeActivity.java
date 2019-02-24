@@ -96,7 +96,7 @@ public class HomeActivity extends AppCompatActivity implements HomePresenter.Hom
      */
     private HashMap<String, String> createSearchParam() {
         HashMap<String, String> params = new HashMap<>();
-        params.put("term", "space");
+        params.put("term", "star");
         params.put("country", "au");
         params.put("media", "movie");
         return params;
