@@ -30,7 +30,6 @@ dependencies {
     implementation dagger
     implementation rxjava
     implementation cardView
-    implementation recyclerView
     implementation expandableRecyclerView
     implementation picasso
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'

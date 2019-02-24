@@ -8,13 +8,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.omiplekevin.appetiserplay.R;
-import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import lombok.Getter;
 
-public class CardTypeOneViewHolder extends GroupViewHolder {
+public class CardTypeOneViewHolder extends RecyclerView.ViewHolder{
 
 
     @Getter

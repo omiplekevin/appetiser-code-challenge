@@ -1,7 +1,6 @@
 package com.android.omiplekevin.appetiserplay.data.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
 
