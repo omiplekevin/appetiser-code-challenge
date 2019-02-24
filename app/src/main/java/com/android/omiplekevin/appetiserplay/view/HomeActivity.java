@@ -62,6 +62,10 @@ public class HomeActivity extends AppCompatActivity implements HomePresenter.Hom
     ///////////////////////////////////////////////////////////////////////////
     // PRIVATE METHODS
     ///////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Sets necessary requirements for recycler view to properly display the list
+     */
     private void prepareRecyclerView() {
         if (this.recyclerView != null) {
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -72,6 +76,9 @@ public class HomeActivity extends AppCompatActivity implements HomePresenter.Hom
         }
     }
 
+    /**
+     * Sets last visit label above the list
+     */
     private void setLastVisit() {
         long lastVisit = homePresenter.getLastVisit();
         if (lastVisit == 0L) {
@@ -81,6 +88,12 @@ public class HomeActivity extends AppCompatActivity implements HomePresenter.Hom
         }
     }
 
+    /**
+     * Creates a HashMap<String, String> parameter needed for querying the source API.
+     * @return {@code HashMap<String, String>} that contains parameters needed for querying
+     *
+     * @see <a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#searching">iTunes Search API</a>
+     */
     private HashMap<String, String> createSearchParam() {
         HashMap<String, String> params = new HashMap<>();
         params.put("term", "space");

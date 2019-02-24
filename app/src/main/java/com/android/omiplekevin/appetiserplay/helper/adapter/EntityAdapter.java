@@ -49,10 +49,10 @@ public class EntityAdapter extends RecyclerView.Adapter<CardTypeOneViewHolder> {
     public void onBindViewHolder(final @NonNull CardTypeOneViewHolder viewHolder, final int position) {
         EntityModel entity = this.searchResponseModel.getTrackSearchResult().get(position);
         Picasso.get()
-                .load(entity.artworkUrl100)
-                .error(R.drawable.placeholder)
+                .load(entity.artworkUrl100) //load url
+                .error(R.drawable.placeholder) //in case image url doesn't load, use this image placeholder
                 .transform(new RoundedCornersTransformation(
-                10,
+                10, //set corner radius
                 0,
                 RoundedCornersTransformation.CornerType.ALL))
                 .into(viewHolder.getArtCover());
@@ -65,20 +65,24 @@ public class EntityAdapter extends RecyclerView.Adapter<CardTypeOneViewHolder> {
             viewHolder.getEntityPriceHD().setText(this.context.getString(R.string.label_hd_price, entity.trackHdPrice));
         }
 
+        //prepare Navigation Transition pairs
         final Pair[] pairs = new Pair[3];
         pairs[0] = new Pair<View, String>(viewHolder.getArtCover(), context.getString(R.string.artCoverTransition));
         pairs[1] = new Pair<View, String>(viewHolder.getEntityTitle(), context.getString(R.string.titleTransition));
         pairs[2] = new Pair<View, String>(viewHolder.getEntityGenre(), context.getString(R.string.genreTransition));
+
         viewHolder.getUnfoldBtn().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent detailIntent = new Intent(context, DetailActivity.class);
+                //add track information to intent extras to display on DetailActivity
                 detailIntent.putExtra("title", searchResponseModel.getTrackSearchResult().get(position).trackName);
                 detailIntent.putExtra("genre", searchResponseModel.getTrackSearchResult().get(position).primaryGenreName);
                 detailIntent.putExtra("description", searchResponseModel.getTrackSearchResult().get(position).longDescription);
                 detailIntent.putExtra("artwork", searchResponseModel.getTrackSearchResult().get(position).artworkUrl100);
-
+                //create ActivityOption and add navigation transition
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((HomeActivity) context, pairs);
+                //start DetailActivity with extras and activity options
                 context.startActivity(detailIntent, options.toBundle());
             }
         });

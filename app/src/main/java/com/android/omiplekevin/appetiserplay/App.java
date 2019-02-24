@@ -20,11 +20,14 @@ public class App extends Application {
         getAndWriteVisitTimeStamp();
     }
 
+    /**
+     * Retrieves and saves timestamp for logging in last visit
+     */
     private void getAndWriteVisitTimeStamp() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
+        //retrieve and set saved timestamp from last visit
         setLastVisit(sharedPreferences.getLong(Constants.SHARED_PREFS_LAST_VISIT, 0L));
-
+        //save current timestamp as last visit field on shared preferences
         sharedPreferences
                 .edit()
                 .putLong(Constants.SHARED_PREFS_LAST_VISIT, System.currentTimeMillis())

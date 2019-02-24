@@ -38,24 +38,31 @@ public class HomePresenter {
 
     /**
      * Default constructor
+     *
      * @param context Requires HomePresenterCallback for conveying the result of the an action invoked by HomeActivity
      */
     public HomePresenter(Context context) {
         this.context = context;
-        this.callback = (HomePresenterCallback)this.context;
+        this.callback = (HomePresenterCallback) this.context;
         compositeSubscription = new CompositeSubscription();
         DaggerDependencyComponent
                 .builder()
                 .restModule(new RestModule())
                 .build()
-        .inject(this);
+                .inject(this);
     }
 
     /**
-     * Call to iTunes API for getting related information about the track given with the parameters provided by the method caller
+     * Call to iTunes API for getting related information about the track given with the parameters provided by the method caller.
+     * If network connectivity is available, method will fetch from iTunes Search API and receives a parsed response from Retrofit.
+     * Otherwise, cached json-string content will be retrieved and parsed.
+     *
+     * Callback will trigger {@link HomePresenterCallback} <code>onSuccess()</code> callback to provide view with the parsed data. <code>onError()</code>
+     * otherwise with provided Throwable object with message of reason.
      *
      * @param searchParams track-related information that is used to filter out results.
      * @see <a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#searching">iTunes Search API</a>
+     * @see SearchResponseModel
      */
     public void searchTracks(HashMap<String, String> searchParams) {
         if (isNetworkAvailable()) {
@@ -84,10 +91,21 @@ public class HomePresenter {
         }
     }
 
+    /**
+     * Provides last visit timestamp pre-queried on the App.class
+     * @return
+     *
+     * @see App#getLastVisit()
+     */
     public long getLastVisit() {
-        return ((App)this.context.getApplicationContext()).getLastVisit();
+        return ((App) this.context.getApplicationContext()).getLastVisit();
     }
 
+    /**
+     * Format last visit timestamp to readable string
+     * @param lastVisit last visit timestamp save from sharedpreferences
+     * @return formatted string
+     */
     public String parseMillisToDateString(long lastVisit) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(lastVisit);
@@ -105,7 +123,8 @@ public class HomePresenter {
 
     /**
      * Lazy Implementation. Writes string cache to SharedPreference.
-     * @param key to be used as key reference on shared preferences table
+     *
+     * @param key     to be used as key reference on shared preferences table
      * @param content string value paired on shared preferences table with the key parameter provided
      */
     private void writeToCache(String key, String content) {
@@ -115,9 +134,12 @@ public class HomePresenter {
                 .apply();
     }
 
+    /**
+     * Check network connectivity
+     * @return <code>true</code> if network connection is available, <code>false</code> otherwise.
+     */
     private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) this.context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) this.context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }

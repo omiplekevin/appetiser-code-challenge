@@ -21,6 +21,13 @@ public class RestAPICalls {
         this.restService = restService;
     }
 
+    /**
+     * Performs iTunes Search API call using retrofit and receives parsed Object via Observable.
+     *
+     * @param callback returning interface for this method caller
+     * @param searchParams parameters that will be used as QueryMap for RetroFit.
+     * @return
+     */
     public Subscription doSearchTracks(final RestAPICallback callback, HashMap<String, String> searchParams) {
         return restService.doTrackSearch(searchParams)
                 .subscribeOn(Schedulers.io())
