@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">AppetiserPlay</string>
+    <string name="art_description">Album Artwork</string>
+    <string name="actionBtn_description">Action Toggle Button</string>
+    <string name="label_hd_price">%1$.2f HD</string>
+    <string name="label_description">Description: </string>
+
+    <string name="toast_recycler_failure">Opps! Something\'s wrong while displaying the list</string>
+
+    <!--transitions-->
+    <string name="artCoverTransition">artCoverTransition</string>
+    <string name="titleTransition">titleTransition</string>
+    <string name="genreTransition">genreTransition</string>
 </resources>

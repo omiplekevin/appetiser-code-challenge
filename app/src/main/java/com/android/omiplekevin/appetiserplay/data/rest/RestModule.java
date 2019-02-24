@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.android.omiplekevin.appetiserplay.BuildConfig;
-import com.facebook.stetho.okhttp3.StethoInterceptor;
 
 import java.io.File;
 import java.io.IOException;
@@ -54,7 +53,6 @@ public class RestModule {
         dispatcher.setMaxRequests(3);
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
-                .addNetworkInterceptor(new StethoInterceptor())
                 .dispatcher(dispatcher)
                 .build();
 

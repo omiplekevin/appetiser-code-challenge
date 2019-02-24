@@ -1,252 +1,156 @@
 package com.android.omiplekevin.appetiserplay.data.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import lombok.Getter;
 import lombok.ToString;
 
 @ToString
 public class EntityModel {
 
-    /**
-     * MERGE: movie
-     */
     @SerializedName("wrapperType")
+    @Getter
     public String wrapperType;
 
     @SerializedName("kind")
+    @Getter
     public String kind;
 
+    @SerializedName("collectionId")
+    @Getter
+    public Integer collectionId;
+
     @SerializedName("trackId")
+    @Getter
     public Integer trackId;
 
     @SerializedName("artistName")
+    @Getter
     public String artistName;
 
+    @SerializedName("collectionName")
+    @Getter
+    public String collectionName;
+
     @SerializedName("trackName")
+    @Getter
     public String trackName;
 
+    @SerializedName("collectionCensoredName")
+    @Getter
+    public String collectionCensoredName;
+
     @SerializedName("trackCensoredName")
+    @Getter
     public String trackCensoredName;
 
+    @SerializedName("collectionArtistId")
+    @Getter
+    public Integer collectionArtistId;
+
+    @SerializedName("collectionArtistViewUrl")
+    @Getter
+    public String collectionArtistViewUrl;
+
+    @SerializedName("collectionViewUrl")
+    @Getter
+    public String collectionViewUrl;
+
     @SerializedName("trackViewUrl")
+    @Getter
     public String trackViewUrl;
 
     @SerializedName("previewUrl")
+    @Getter
     public String previewUrl;
 
     @SerializedName("artworkUrl30")
+    @Getter
     public String artworkUrl30;
 
     @SerializedName("artworkUrl60")
+    @Getter
     public String artworkUrl60;
 
     @SerializedName("artworkUrl100")
+    @Getter
     public String artworkUrl100;
 
     @SerializedName("collectionPrice")
+    @Getter
     public Float collectionPrice;
 
     @SerializedName("trackPrice")
+    @Getter
     public Float trackPrice;
 
-    @SerializedName("trackRentalPrice")
-    public Float trackRentalPrice;
-
     @SerializedName("collectionHdPrice")
+    @Getter
     public Float collectionHdPrice;
 
     @SerializedName("trackHdPrice")
+    @Getter
     public Float trackHdPrice;
 
-    @SerializedName("trackHdRentalPrice")
-    public Float trackHdRentalPrice;
-
     @SerializedName("releaseDate")
+    @Getter
     public String releaseDate;
 
     @SerializedName("collectionExplicitness")
+    @Getter
     public String collectionExplicitness;
 
     @SerializedName("trackExplicitness")
+    @Getter
     public String trackExplicitness;
 
-    @SerializedName("trackTimeMillis")
-    public Integer trackTimeMillis;
-
-    @SerializedName("country")
-    public String country;
-
-    @SerializedName("currency")
-    public String currency;
-
-    @SerializedName("primaryGenreName")
-    public String primaryGenreName;
-
-    @SerializedName("contentAdvisoryRating")
-    public String contentAdvisoryRating;
-
-    @SerializedName("shortDescription")
-    public String shortDescription;
-
-    @SerializedName("longDescription")
-    public String longDescription;
-
-    @SerializedName("hasITunesExtras")
-    public Boolean hasITunesExtras;
-
-    /**
-     * MERGE: music
-     */
-    @SerializedName("artistId")
-    public Integer artistId;
-
-    @SerializedName("collectionId")
-    public Integer collectionId;
-
-    @SerializedName("collectionName")
-    public String collectionName;
-
-    @SerializedName("collectionCensoredName")
-    public String collectionCensoredName;
-
-    @SerializedName("collectionArtistId")
-    public Integer collectionArtistId;
-
-    @SerializedName("collectionArtistName")
-    public String collectionArtistName;
-
-    @SerializedName("artistViewUrl")
-    public String artistViewUrl;
-
-    @SerializedName("collectionViewUrl")
-    public String collectionViewUrl;
-
     @SerializedName("discCount")
+    @Getter
     public Integer discCount;
 
     @SerializedName("discNumber")
+    @Getter
     public Integer discNumber;
 
     @SerializedName("trackCount")
+    @Getter
     public Integer trackCount;
 
     @SerializedName("trackNumber")
+    @Getter
     public Integer trackNumber;
 
-    @SerializedName("isStreamable")
-    public Boolean isStreamable;
+    @SerializedName("trackTimeMillis")
+    @Getter
+    public Integer trackTimeMillis;
 
-    /**
-     * MERGE: podcast
-     */
-    @SerializedName("feedUrl")
-    public String feedUrl;
+    @SerializedName("country")
+    @Getter
+    public String country;
 
-    @SerializedName("artworkUrl600")
-    public String artworkUrl600;
+    @SerializedName("currency")
+    @Getter
+    public String currency;
 
-    @SerializedName("genreIds")
-    public List<String> genreIds = null;
+    @SerializedName("primaryGenreName")
+    @Getter
+    public String primaryGenreName;
 
-    @SerializedName("genres")
-    public List<String> genres = null;
+    @SerializedName("contentAdvisoryRating")
+    @Getter
+    public String contentAdvisoryRating;
 
-    /**
-     * MERGE: audiobook
-     */
-    @SerializedName("copyright")
-    public String copyright;
+    @SerializedName("longDescription")
+    @Getter
+    public String longDescription;
 
-    @SerializedName("description")
-    public String description;
-
-    /**
-     * MERGE: software
-     */
-    @SerializedName("screenshotUrls")
-    public List<String> screenshotUrls = null;
-
-    @SerializedName("ipadScreenshotUrls")
-    public List<String> ipadScreenshotUrls = null;
-
-    @SerializedName("appletvScreenshotUrls")
-    public List<String> appletvScreenshotUrls = null;
-
-    @SerializedName("artworkUrl512")
-    public String artworkUrl512;
-
-    @SerializedName("isGameCenterEnabled")
-    public Boolean isGameCenterEnabled;
-
-    @SerializedName("supportedDevices")
-    public List<String> supportedDevices = null;
-
-    @SerializedName("features")
-    public List<String> features = null;
-
-    @SerializedName("advisories")
-    public List<String> advisories = null;
-
-    @SerializedName("averageUserRatingForCurrentVersion")
-    public Float averageUserRatingForCurrentVersion;
-
-    @SerializedName("languageCodesISO2A")
-    public List<String> languageCodesISO2A = null;
-
-    @SerializedName("fileSizeBytes")
-    public String fileSizeBytes;
-
-    @SerializedName("sellerUrl")
-    public String sellerUrl;
-
-    @SerializedName("userRatingCountForCurrentVersion")
-    public Integer userRatingCountForCurrentVersion;
-
-    @SerializedName("trackContentRating")
-    public String trackContentRating;
-
-    @SerializedName("minimumOsVersion")
-    public String minimumOsVersion;
-
-    @SerializedName("releaseNotes")
-    public String releaseNotes;
-
-    @SerializedName("sellerName")
-    public String sellerName;
-
-    @SerializedName("version")
-    public String version;
-
-    @SerializedName("price")
-    public Float price;
-
-    @SerializedName("bundleId")
-    public String bundleId;
-
-    @SerializedName("currentVersionReleaseDate")
-    public String currentVersionReleaseDate;
-
-    @SerializedName("formattedPrice")
-    public String formattedPrice;
-
-    @SerializedName("primaryGenreId")
-    public Integer primaryGenreId;
-
-    @SerializedName("isVppDeviceBasedLicensingEnabled")
-    public Boolean isVppDeviceBasedLicensingEnabled;
-
-    @SerializedName("averageUserRating")
-    public Float averageUserRating;
-
-    @SerializedName("userRatingCount")
-    public Integer userRatingCount;
-
-    /**
-     * MERGE: ebook
-     */
-    @SerializedName("artistIds")
-    public List<Integer> artistIds = null;
-
+    @SerializedName("hasITunesExtras")
+    @Getter
+    public Boolean hasITunesExtras;
 }

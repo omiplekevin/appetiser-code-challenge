@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dimen_15">
+
+    <ImageView
+        android:id="@+id/artCoverDetail"
+        android:layout_width="@dimen/dimen_128"
+        android:layout_height="@dimen/dimen_128"
+        android:background="#CCCCCC"
+        android:contentDescription="@string/art_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/placeholder"
+        android:transitionName="@string/artCoverTransition"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/entityTitleDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:text="@string/app_name"
+        android:textSize="@dimen/dimen_text_25"
+        android:textStyle="bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintTop_toTopOf="@id/artCoverDetail"
+        app:layout_constraintWidth_default="wrap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/artCoverDetail"/>
+
+    <TextView
+        android:id="@+id/entityGenreDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="@dimen/dimen_text_20"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@id/entityTitleDetail"
+        app:layout_constraintTop_toBottomOf="@id/entityTitleDetail" />
+
+    <TextView
+        android:id="@+id/entityDescriptionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dimen_20"
+        android:text="@string/label_description"
+        android:textSize="@dimen/dimen_text_20"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/artCoverDetail" />
+
+    <TextView
+        android:id="@+id/entityDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/entityDescriptionLabel"
+        app:layout_constraintTop_toBottomOf="@id/entityDescriptionLabel"
+        android:textSize="@dimen/dimen_text_15"/>
+
+</android.support.constraint.ConstraintLayout>

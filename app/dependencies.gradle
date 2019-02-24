@@ -11,7 +11,15 @@ ext.retrofit = [
 ]
 
 ext.recyclerView = [
-        "com.android.support:recyclerview-v7:26.1.0"
+        "com.android.support:recyclerview-v7:28.0.0"
+]
+
+ext.expandableRecyclerView = [
+        "com.thoughtbot:expandablerecyclerview:1.3"
+]
+
+ext.cardView = [
+        "com.android.support:cardview-v7:28.0.0"
 ]
 
 ext.butterKnife = [
@@ -43,9 +51,9 @@ ext.rxjava = [
         "io.reactivex:rxjava:1.3.8"
 ]
 
-ext.facebookstetho = [
-        "com.facebook.stetho:stetho:1.5.0",
-        "com.facebook.stetho:stetho-okhttp3:1.5.0"
+ext.picasso = [
+        "com.squareup.picasso:picasso:2.71828",
+        "jp.wasabeef:picasso-transformations:2.2.1"
 ]
 
 /**

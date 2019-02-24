@@ -29,7 +29,11 @@ dependencies {
     implementation lombok
     implementation dagger
     implementation rxjava
-    implementation facebookstetho
+    implementation cardView
+    implementation recyclerView
+    implementation expandableRecyclerView
+    implementation picasso
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor butterKnifeAnnotation
     annotationProcessor lombokAnnotation
     annotationProcessor daggerAnnotation

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="@dimen/dimen_10">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/artCover"
+            android:layout_width="@dimen/dimen_128"
+            android:layout_height="@dimen/dimen_128"
+            android:background="#CCCCCC"
+            android:contentDescription="@string/art_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"
+            android:transitionName="@string/artCoverTransition"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/entityTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:text="@string/app_name"
+            android:textSize="@dimen/dimen_text_20"
+            android:textStyle="bold"
+            android:transitionName="@string/titleTransition"
+            app:layout_constraintLeft_toRightOf="@id/artCover"
+            app:layout_constraintTop_toTopOf="@id/artCover" />
+
+        <TextView
+            android:id="@+id/entityGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="@dimen/dimen_text_15"
+            android:transitionName="@string/genreTransition"
+            app:layout_constraintBottom_toTopOf="@id/entityPrice"
+            app:layout_constraintLeft_toLeftOf="@id/entityTitle"
+            app:layout_constraintTop_toBottomOf="@id/entityTitle" />
+
+        <TextView
+            android:id="@+id/entityPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_2"
+            android:text="@string/app_name"
+            android:textSize="@dimen/dimen_text_15"
+            android:textStyle="italic"
+            app:layout_constraintLeft_toLeftOf="@id/entityGenre"
+            app:layout_constraintTop_toBottomOf="@id/entityGenre" />
+
+        <TextView
+            android:id="@+id/entityPriceHD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_5"
+            android:padding="@dimen/dimen_2"
+            android:text="@string/label_hd_price"
+            android:textSize="@dimen/dimen_text_15"
+            android:textStyle="italic|bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/entityPrice"
+            app:layout_constraintLeft_toRightOf="@id/entityPrice"
+            app:layout_constraintTop_toTopOf="@id/entityPrice" />
+
+        <ImageButton
+            android:id="@+id/favBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_5"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/actionBtn_description"
+            android:src="@drawable/ic_favorite_border_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/entityPrice"
+            app:layout_constraintTop_toBottomOf="@+id/entityPrice" />
+
+        <ImageButton
+            android:id="@+id/unfoldBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_5"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/actionBtn_description"
+            android:src="@drawable/ic_unfold_more_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/entityPrice" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

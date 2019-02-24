@@ -24,7 +24,7 @@ public class RestAPICalls {
     public Subscription doSearchTracks(final RestAPICallback callback, HashMap<String, String> searchParams) {
         return restService.doTrackSearch(searchParams)
                 .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .onErrorResumeNext(new Func1<Throwable, Observable<? extends SearchResponseModel>>() {
                     @Override
                     public Observable<? extends SearchResponseModel> call(Throwable throwable) {
