@@ -3,19 +3,21 @@ package com.android.omiplekevin.appetiserplay.view;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.omiplekevin.appetiserplay.App;
 import com.android.omiplekevin.appetiserplay.R;
 import com.android.omiplekevin.appetiserplay.data.model.SearchResponseModel;
 import com.android.omiplekevin.appetiserplay.helper.adapter.EntityAdapter;
 import com.android.omiplekevin.appetiserplay.presenter.HomePresenter;
 
+import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +31,9 @@ public class HomeActivity extends AppCompatActivity implements HomePresenter.Hom
     @BindView(R.id.listingRecyclerView)
     public RecyclerView recyclerView;
 
+    @BindView(R.id.lastVisit)
+    public TextView lastVisitLabel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +41,10 @@ public class HomeActivity extends AppCompatActivity implements HomePresenter.Hom
         ButterKnife.bind(this);
 
         homePresenter = new HomePresenter(this);
+        setLastVisit();
         prepareRecyclerView();
         homePresenter.searchTracks(createSearchParam());
+
     }
 
     @Override
@@ -65,9 +72,18 @@ public class HomeActivity extends AppCompatActivity implements HomePresenter.Hom
         }
     }
 
+    private void setLastVisit() {
+        long lastVisit = homePresenter.getLastVisit();
+        if (lastVisit == 0L) {
+            lastVisitLabel.setVisibility(View.GONE);
+        } else {
+            lastVisitLabel.setText(homePresenter.parseMillisToDateString(lastVisit));
+        }
+    }
+
     private HashMap<String, String> createSearchParam() {
         HashMap<String, String> params = new HashMap<>();
-        params.put("term", "star");
+        params.put("term", "space");
         params.put("country", "au");
         params.put("media", "movie");
         return params;

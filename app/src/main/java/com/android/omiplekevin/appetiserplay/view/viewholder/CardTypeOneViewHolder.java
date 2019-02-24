@@ -38,10 +38,6 @@ public class CardTypeOneViewHolder extends GroupViewHolder {
     TextView entityPriceHD;
 
     @Getter
-    @BindView(R.id.favBtn)
-    ImageButton favBtn;
-
-    @Getter
     @BindView(R.id.unfoldBtn)
     ImageButton unfoldBtn;
 

@@ -58,7 +58,7 @@ public class EntityAdapter extends RecyclerView.Adapter<CardTypeOneViewHolder> {
                 .into(viewHolder.getArtCover());
         viewHolder.getEntityTitle().setText(entity.trackName);
         viewHolder.getEntityGenre().setText(entity.primaryGenreName);
-        viewHolder.getEntityPrice().setText(String.valueOf(entity.trackPrice));
+        viewHolder.getEntityPrice().setText(this.context.getString(R.string.label_price, entity.trackPrice));
         if (entity.trackHdPrice != null && entity.trackHdPrice > 0) {
             viewHolder.getEntityPriceHD().setVisibility(View.VISIBLE);
             viewHolder.getEntityPriceHD().invalidate();
